@@ -334,7 +334,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         );
                       },
                       child: const Text(
-                        "I already have an accout",
+                        "I already have an account",
                         style: TextStyle(
                           color: Colors.blueAccent,
                           decoration: TextDecoration.underline,
