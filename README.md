@@ -1,299 +1,245 @@
 # Orange Scout
 
-## Visão Geral / Overview
-**Orange Scout** é um aplicativo mobile para registrar estatísticas de jogadores de forma facil e rapida.
+## Overview
 
-*(English)*<br>
-**Orange Scout** is a mobile app to register player stats in a easy and fast way.
+**Orange Scout** is a mobile application designed to record basketball player statistics quickly and easily.
 
-- ### Problema resolvido / Problem solved: <br>
-**Orange Scout** tem como objetivo dar ao usuario o poder de registrar as estatísticas de jogadores durante a partida de basquete, dando a oportunidade de serem visualizadas após o jogo.
-Isso permite aos treinadores monitorarem o desempenho dos jogadores durante essa partida para que seus pontos fortes e fracos sejam destacados e, assim, o jogador possa tomar medidas em relação a isso.
-<br><Br>*(English)*<br>
-**Orange Scout** aims to give users the power to record player statistics during a basketball game, and then view them after the game.
-This allows coaches to monitor players' performance during the game so that their strengths and weaknesses are highlighted and players can take action on them.
+### Problem Solved
 
-- ### Publico alvo / Target audience: <br>
-Jogadores de basquete, Treinadores de basquete, espectadores de basquete e organizadores de campeonatos.
-<br><br>*(English)* <br>
-Basketball players, Basketball coaches, Basketball viewers and Tournament organizers.
+**Orange Scout** aims to empower users to record player statistics during a basketball game, allowing for detailed visualization of this data after the match. This enables coaches to monitor player performance, highlighting their strengths and weaknesses, so athletes can take targeted action for their development.
 
-- ### Características principais / Key features: <br>
-Autenticação do usuario, gerenciamento de times e jogadores, monitoramento de estatísticas em tempo real, historico de partidas e visualização de estatísticas.
-<br><br>*(English)* <br>
-User authentication, team/player management, real-time stat tracking, match history, and stat visualization.
+### Target Audience
 
-## Fluxo do usuario e diagramas / User Flow & Diagrams
+Basketball players, basketball coaches, basketball spectators, and tournament organizers.
 
-- #### Autenticação / Autentication <br>
-Ao abrir a aplicação, o sistema checa se o usuario tem um token válido no sistema (ou seja, se um login válido foi feito a pouco tempo). Se o usuário não tiver um token válido, ele será direcionado para a tela de login:
+### Key Features
 
-<br>*(English)* <br>When opening the application, the system checks whether the user has a valid token (i.e., if a valid login was recently performed). If the user does not have a valid token, they will be redirected to the login screen:
-<br>
-![Tela de Login](./assets/tela_de_login.png)<br>
-Na tela de login temos o formulário para login, o botão para o login e um botão para caso o usuário não tenha conta. Caso o usuário ja tenha conta, ele pode inserir ela nos campos dessa tela e pressionar o botão "Login", sendo direcionado assim para a tela inicial.
-Caso o usuário clique no botão "I don't have an account", ele será direcionado para a tela de cadastro:<br>
-<br>
-*(English)*<br>
-On the login screen, there is a form to enter credentials, a button to log in, and a button for users who do not have an account. If the user already has an account, they can fill in their credentials and press the "Login" button to be redirected to the home screen.
-If the user clicks "I don't have an account", they will be redirected to the registration screen:<br>
-![Tela de cadastro](./assets/tela_de_cadastro.png)<br>
-Aqui, o usuario poderá voltar à tela de login clicando em "I Already have an account". Caso o usuário preencha os formulários da forma certa e pressionar o botão Register, será mandado um email para o email que foi passado no formulário para a validação e o usuário será direcionado para a tela de validação:
+* User authentication
+* Team and player management
+* Real-time stat tracking
+* Match history
+* Stat visualization
 
-<br>
-*(English)*<br>
-On this screen, the user can go back to the login screen by clicking "I already have an account". If the user fills in the form correctly and presses the "Register" button, an email will be sent to the provided email address containing a validation code. The user will then be redirected to the validation screen:<br>
-![Tela de validação](./assets/tela_de_validacao.png)
-Nessa tela, o usuário pode fazer o seguinte:
-Clicar em voltar e validar depois (durante a tentativa de iniciar a partida), digitar o código que le foi mandado no campo e clicar no botão "Validate", ou clicar em Resend Code, fazendo assim um novo código ser mandado para o email. Caso seja pressionado o Resend Code, um snackBar surgirá indicando que foi mandado o código:
+---
 
-*(English)*<br>
+## User Flow & Diagrams
+
+### Authentication
+
+Upon opening the application, the system checks if the user has a valid token (indicating a recent successful login). If not, the user is redirected to the login screen:
+
+<img src="./assets/tela_de_login.jpeg" width="200"/>
+
+On the login screen, there's a form for credentials, a login button, and a button for users who don't have an account. If the user already has an account, they can fill in their credentials and press "Login" to be redirected to the home screen.
+
+If the user clicks "I don't have an account," they'll be redirected to the registration screen:
+
+<img src="./assets/tela_de_cadastro.jpeg" width="200"/>
+
+From this screen, the user can go back to the login screen by clicking "I already have an account." If the user fills out the form correctly and presses "Register," a validation email will be sent to the provided address, and the user will be redirected to the validation screen:
+
+<img src="./assets/tela_de_validacao.jpeg" width="200"/>
+
 On this screen, the user has three options:
 
-Click "Back" and validate later (the app will request validation when trying to start a match).
+* Click "Back" to validate later (validation will be requested when attempting to start a match).
+* Enter the code received via email into the input field and press "Validate."
+* Click "Resend Code," which will send a new code to the registered email.
 
-Enter the code received via email in the input field and press "Validate".
+When "Resend Code" is pressed, a snackbar will appear, indicating that a new code has been sent:
 
-Click "Resend Code", which will send a new code to the registered email.
+<img src="./assets/tela_de_validacao_pos_resend.jpeg" width="200"/>
 
-When "Resend Code" is pressed, a snackbar will appear indicating that a new code has been sent:
-<br>
-![Tela de validação pós Resend](./assets/tela_de_validacao_pos_resend.png)*Na imagem, a tela de validação pós resend. A barra verde está cobrindo meu email por questões de segurança, mas na prática é mostrado o email.*<br>
+*In the image, the green bar covers my email for security reasons. In the actual app, the email is displayed correctly.*
 
-*(English)*<br>
-*In the image, the green bar covers my email for privacy reasons. In the app, the email is displayed correctly.*<br>
+If the correct code is entered and the "Validate" button is pressed, the user will be taken to the app's home screen, and their account will be successfully validated.
 
-Caso o código correto seja inserido e o botão de Validate for pressionado, o usuário será levado a tela inicial do aplicativo e sua conta estará validada.
-<br>
+### Starting a Match
 
-*(English)*<br>
-If the correct code is entered and the "Validate" button is pressed, the user will be redirected to the app's home screen, and their account will be successfully validated.
+Upon being redirected to the home screen, the user will find themselves on the game selection screen, where they can choose from three game modes:
 
-- #### Começando uma partida / Starting a match<br>
-Ao ser redirecionado para a tela inicial, o usuario estará na tela de seleção de jogo, onde terá três opções para escolher:
+<img src="./assets/tela_inicial_select_game.jpeg" width="200"/>
 
-*(English)*<br>
-Upon being redirected to the home screen, the user will be on the game selection screen, where there are three available game modes to choose from:<br>
-![Tela inicial](./assets/tela_inicial_select_game.png)<br>
-Se o usuário não validou seu email, ele não poderá selecionar nenhum modo de jogo, então uma snackBar aparecerá e ele poderá ir para a tela de validação a partir dai:
+If the user hasn't validated their email, they won't be able to select any game mode. A snackbar will appear to inform them, and they can navigate to the validation screen from there:
 
-*(English)*<br>
-If the user has not validated their email, they won’t be able to select any game mode. A snackbar will appear indicating this, and the user can navigate to the validation screen from there:<br>
-![Tela inicial não validada](./assets/tela_inicial_select_game_sem_validar.png)
-Se o usuário tiver validado seu email mas não tiver pelo menos dois times ainda, uma snackBar também aparecerá:
+<img src="./assets/tela_inicial_select_game_sem_validar.jpeg" width="200"/>
 
-*(English)*<br>
-If the user has validated their email but does not have at least two teams, a snackbar will also be displayed to inform them:<br>
-![Tela inicial com menos de 2 times](./assets/tela_game_start_5x5_not_enough_teams.png)<br>
-Caso tenha pelo menos dois times e também tiver com o email validado, o usuário será redirecionado para a tela de selecionar os times e jogadores iniciais de cada time. Os jogadores são selecionados de acordo com a ordem de criação.
+If the user has validated their email but doesn't have at least two teams yet, a snackbar will also be displayed to inform them:
 
-<br>*(English)*<br>
-If the user has at least two teams and the email is validated, they will be redirected to the team and player selection screen. Players are displayed in the order they were created:<br>
-![Tela de seleção de times e jogadores](./assets/tela_game_start_5x5_enough_players.png)<br>
-Caso não existam jogadores o suficientes em algum dos times para o modo de jogo selecionado, o botão de começar a partida é desativado:
+<img src="./assets/tela_game_start_5x5_not_enough_teams.jpeg" width="200"/>
 
-<br>*(English)*<br>
-If there are not enough players on any of the teams for the selected game mode, the Start Match button will be disabled:<br>
-![Tela de seleção de times e jogadores sem jogadores o suficiente](./assets/tela_game_start_5x5_not_enough_players.png)<br>
-Caso haja jogadores o suficiente em ambos os times, o botão START é habilitado, e pressionando ele, o usuário será redirecionado para a tela de registro de estatísticas, podendo registrar as estatísticas dos jogadores:
+If the user has at least two teams and their email is validated, they'll be redirected to the team and starting player selection screen for each team. Players are displayed in the order they were created:
 
-<br>*(English)*<br>
-If there are enough players on both teams, the Start button becomes enabled. Once pressed, the user is redirected to the stat tracking screen, where they can record the statistics of the players:<br>
-![Tela de jogo sem nada](./assets/tela_game_vazia.png)<br>
-Após algumas ações serem feitas, a tela será algo assim:
+<img src="./assets/tela_game_start_5x5_enough_players.jpeg" width="200"/>
 
-<br>*(English)*<br>
-After some actions are performed, the game screen will look like this:<br>
-![Tela de jogo com stats](./assets/tela_game_com_stats.png)<br>
-Nessa tela, temos, além dos botões de ações gerais (pontos, erros, faltas...) temos um botão de opções, que caso pressionado, se expandirá um menu com três opções:
+If there aren't enough players on any of the teams for the selected game mode, the "Start Match" button will be disabled:
 
-<br>*(English)*<br>
-On this screen, besides the general action buttons (points, errors, fouls, etc.), there is an options button, which when pressed expands into a menu with three options:<br>
-![Tela de opções](./assets/tela_game_options.png)<br>
-Nesse menu, temos botões para mostrar as legendas dos botões, um botão para sair sem salvar e um botão para finalizar a partida (e salvar). Caso o usuário pressione no botão de legendas, as legendas abrem numa imagem:
+<img src="./assets/tela_game_start_5x5_not_enough_players.jpeg" width="200"/>
 
-<br>*(English)*<br>
+If both teams have enough players, the "START" button becomes enabled. Once pressed, the user is redirected to the stat tracking screen, where they can record player statistics:
+
+<img src="./assets/tela_game_vazia.jpeg" width="300"/>
+
+After some actions are recorded, the screen will look like this:
+
+<img src="./assets/tela_game_com_stats.jpeg" width="300"/>
+
+On this screen, in addition to the general action buttons (points, errors, fouls, etc.), there's an options button. When pressed, it expands into a menu with three options:
+
+<img src="./assets/tela_game_options.jpeg" width="300"/>
+
 The menu contains the following options:
 
-Show Legends — Displays an image explaining the meaning of each button.
+* **Show Legends** — Displays an image explaining the meaning of each button.
+* **Exit Without Saving** — Prompts the user to confirm exiting the game without saving progress.
+* **Finish Match** — Saves the match and its statistics to the database.
 
-Exit Without Saving — Prompts the user to confirm exiting the game without saving.
+If the user selects "Show Legends," an image with the legends will appear:
 
-Finish Match — Saves the match and its statistics to the backend database.
+<img src="./assets/tela_game_legends.jpeg" width="300"/>
 
-If the user selects Show Legends, an image with the legends will appear:<br>
-![Tela de opções - legendas](./assets/tela_game_legends.png)<br>
-Caso pressione no botão de sair sem salvar, um prompt aparece para confirmar a saída:
+If the user selects "Exit Without Saving," a confirmation prompt will be displayed:
 
-<br>*(English)*<br>
-If the user selects Exit Without Saving, a confirmation prompt will be displayed:<br>
-![Tela de opções - sair sem salvar](./assets/tela_game_exit_without_saving.png)<br>
-E caso pressione o botão de finalizar partida, as estatísticas são salvas e enviadas para o backEnd, que armazenará no banco de dados:
+<img src="./assets/tela_game_exit_without_saving.jpeg" width="300"/>
 
-<br>*(English)*<br>
-If the user selects Finish Match, the statistics are saved and sent to the backend, which stores them in the database:<br>
-![Tela de opções - finalizar partida](./assets/tela_inicial_pos_finish_match.png)<br>
-Pode acontecer do usuario, no meio da partida, minimizar o aplicativo para usar outros enquanto isso, e no meio tempo, o sistema operacional destruir a aplicação e o usuário perderá o progresso de sua partida. Para evitar isso, implementei uma funcionalidade que salva sempre que o aplicativo é minimizado e, no momento em que o usuario voltar para o aplicativo, o aplicativo checa no banco de dados se existe uma partida não finalizada, e nesse caso, haverá uma, e o usuário pode continuar sua partida sem perder o progresso:
+If the user selects "Finish Match," the statistics are saved and sent to the backend, which stores them in the database:
 
-<br>*(English)*<br>
-It is possible that during a match, the user minimizes the app to use other apps, and during this time, the operating system may terminate the application, causing the user to lose their match progress.
-To avoid this, a functionality was implemented that automatically saves the match whenever the app is minimized. Then, when the user returns to the app, the system checks the database for any unfinished match. If one is found, the user can choose to continue the match without losing progress:<br>
-![Tela inicial com partida não finalizada](./assets/tela_inicial_unfinished_match.png)<br>
-Caso o usuário selecione que não quer continuar a partida, ela é finalizada e salva no banco de dados, e não descartada. Caso selecione que quer continuar, ele é levado de volta à tela de registro de estatísticas e poderá continuar sua partida.
+<img src="./assets/tela_inicial_pos_finish_match.jpeg" width="200"/>
 
-<br>*(English)*<br>
-If the user selects "No", the match is finished and saved in the database — it is not discarded. If the user chooses "Yes", they are redirected back to the stat tracking screen and can proceed with the match.
+It's possible that during a match, the user minimizes the app to use other applications, and the operating system might terminate the application, causing the user to lose their match progress. To prevent this, a feature was implemented that automatically saves the match whenever the app is minimized. Then, when the user returns to the app, the system checks the database for any unfinished matches. If one is found, the user can choose to continue the match without losing progress:
 
+<img src="./assets/tela_inicial_unfinished_match.jpeg" width="200"/>
 
-- #### Criando e editando um time e jogadores / Creating and editing a team and players<br>
+If the user selects "No" (in the unfinished match dialog), the match is finished and saved in the database—it's not discarded. If the user chooses "Yes," they are redirected back to the stat tracking screen and can resume the match.
 
-Na barra de navegação do aplicativo, o botão do meio leva o usuário para a tela de times. Lá, ele poderá visualizar, criar e editar seus times. Outra forma de ir para essa tela é através de, caso o usuário não tenha pelo menos dois times na hora de selecionar o modo de jogo, clicando na snackbar:
+### Creating and Editing Teams and Players
 
-<br>*(English)*<br>
-In the app's navigation bar, the middle button takes the user to the Teams screen. On this screen, the user can view, create, and edit their teams. Another way to access this screen is when the user tries to select a game mode but has fewer than two teams. In that case, clicking on the snackbar will redirect them to the Teams screen:
+In the app's navigation bar, the middle button takes the user to the Teams screen. Here, users can view, create, and edit their teams. Another way to access this screen is if the user tries to select a game mode but has fewer than two teams; in that case, clicking on the snackbar will redirect them to the Teams screen:
 
-![Tela inicial sem times suficientes](./assets/tela_game_start_5x5_not_enough_teams.png)<br>
-Assim, estamos na tela de times:
+<img src="./assets/tela_game_start_5x5_not_enough_teams.jpeg" width="200"/>
 
-<br>*(English)*<br>
-This brings us to the Teams screen:<br>
-![Tela de times vazia](./assets/tela_teams_vazia.png)<br>
-Como ela está vazia, uma snackbar aparece pedindo para o usuário criar um novo time. Clicando então no botão "+" localizado no canto inferior direito da tela, ele é direcionado para a tela de criação de time:
+This brings us to the Teams screen:
 
-<br>*(English)*<br>
-Since the screen is empty, a snackbar appears prompting the user to create a new team. By clicking the "+" button located in the bottom-right corner, the user is taken to the team creation screen:<br>
-![Tela criação de time](./assets/tela_teams_create.png)<br>
-Nessa tela, temos dois campos para preencher, um botão de finalizar a criação do time e um botão para navegar entre as fotos do dispositivo para escolher um escudo melhor para o time. O aplicativo vai pedir autorização do usuário antes de qualquer coisa.
-Ao clicar no botão "create", o usuário é direcionado a tela de times novamente, mas dessa vez com o novo time lá:
+<img src="./assets/tela_teams_vazia.jpeg" width="300"/>
 
-<br>*(English)*<br>
-In this screen, there are two input fields, a button to finalize the team creation, and a button that opens the device’s gallery to select a custom logo for the team. The app will ask the user for permission before accessing storage.
+Since the screen is empty, a snackbar appears, prompting the user to create a new team. By clicking the "+" button located in the bottom-right corner, the user is taken to the team creation screen:
 
-After clicking the "Create" button, the user is redirected back to the Teams screen, which now displays the newly created team:<br>
-![Tela de times](./assets/tela_teams_com_times.png)<br>
-Nessa tela, podemos clicar no time para entrar na edição dele, mostrando os botões de edição de time, exclusão e criação de jogadores:
+<img src="./assets/tela_teams_create.jpeg" width="200"/>
 
-<br>*(English)*<br>
-On this screen, clicking on a team opens the Team Edit screen, where the user can:
+On this screen, there are two input fields, a button to finalize team creation, and a button that opens the device's gallery to select a custom logo for the team. The app will request user permission before accessing storage.
 
-Edit the team;
+After clicking the "Create" button, the user is redirected back to the Teams screen, which now displays the newly created team:
 
-Delete the team;
+<img src="./assets/tela_teams_com_times.jpeg" width="200"/>
 
-Create and manage players for the team
+On this screen, clicking on a team allows the user to edit it, displaying options to edit the team, delete it, and manage players:
 
-<br>![Tela de edição de time](./assets/tela_teams_edit.png)<br>
-Nessa tela temos as seguintes opções:
-Editar time, representado pelo lapis no canto superior direito;
-Excluir time e todos os jogadores nele, representado pela lixeira do lado do lapis.
-Ao selecionar a lixeira, um prompt de confirmação aparecerá para impedir que o usuário exclua o time por acidente:
+<img src="./assets/tela_teams_edit.jpeg" width="200"/>
 
-<br>*(English)*<br>
-On this screen, the following options are available:
+On the team edit screen, the following options are available:
 
-Edit Team, represented by the pencil icon in the top-right corner.
+* **Edit Team**: Represented by the pencil icon in the top-right corner.
+* **Delete Team**: Represented by the trash can icon next to the pencil (this includes all associated players).
 
-Delete Team (including all players in it), represented by the trash can icon next to the pencil.
+If the user selects the trash can icon, a confirmation prompt will appear to prevent accidental deletions:
 
-If the user selects the trash can icon, a confirmation prompt will appear to prevent accidental deletions:<br>
-![Tela de exclusão de time](./assets/tela_team_delete.png)<br>
-Ao selecionar o Delete, o usuário será direcionado novamente à tela de times, que estará sem o time recentemente excluído.
-Ainda na tela de edição de time, ao selecionar o lápis, o usuário será direcionado para a tela onde poderá editar o nome, abreviação e o escudo do time:
+<img src="./assets/tela_team_delete.jpeg" width="200"/>
 
-<br>*(English)*<br>
-Upon confirming "Delete", the user will be redirected back to the Teams screen, which no longer contains the deleted team.
+Upon confirming "Delete," the user will be redirected back to the Teams screen, which no longer contains the deleted team.
 
-Still on the Team Edit screen, clicking the pencil icon will redirect the user to the Edit Team screen, where they can update the team’s name, abbreviation, and logo:<br>
-![Tela de edição de time - 2](./assets/tela_create_or_edit_team.png)<br>
-Essa tela é a mesma da tela de criação de time, com a diferença que ela vai atualizar o time ao invés de criar um novo.
-Agora, na tela de edição de time também teremos a visualização dos jogadores do time e um dos widgets é reservado para a criação de um novo jogador.
-Do lado de cada jogador, temos um botão para abrir as opções do jogador. Ao pressionar esse botão, um menu é aberto com as opções para editar o jogador e para excluí-lo.
+Still on the Team Edit screen, clicking the pencil icon redirects the user to the Edit Team screen, where they can update the team's name, abbreviation, and logo:
 
-<br>*(English)*<br>
+<img src="./assets/tela_create_or_edit_team.jpeg" width="200"/>
+
 This screen is the same as the Create Team screen, but instead of creating a new team, it updates the selected team.
 
 Additionally, on the Team Edit screen, the user can view the list of players for that team. There is always a dedicated widget for adding a new player.
 
-Next to each player, there is a menu button that, when pressed, opens a menu with the options to edit or delete the player:<br>
-![Tela de menu de jogador](./assets/tela_team_player_menu.png)<br>
-Nesse momento, o menu é aberto e temos as opções "Edit player" e "Delete player". Ao pressionar no botão "Edit player", uma janela é aberta com dois campos para a edição do jogador e dois botões, sendo "Save" e "Cancel". Ao pressionar em "Save", o jogador é editado com os valores que estavam nos campos:
+Next to each player, there's a menu button that, when pressed, opens a menu with options to edit or delete the player:
 
-<br>*(English)*<br>
-When the menu is open, the user sees the options: "Edit player" and "Delete player".
+<img src="./assets/tela_team_player_menu.jpeg" width="200"/>
 
-Selecting "Edit player" opens a dialog with two input fields for editing the player and two buttons: "Save" and "Cancel".
+When the menu is open, the user sees the options: "Edit player" and "Delete player."
 
-Clicking "Save" updates the player with the new values:<br>
-![Tela de edição de jogador](./assets/tela_edit_player.png)<br>
-Já na outra opção a "Delete player", uma janela de prompt de confirmação aparece para que um jogador não seja excluído por acidente.
+Selecting "Edit player" opens a dialog with two input fields for editing the player and two buttons: "Save" and "Cancel."
 
-<br>*(English)*<br>
-Selecting "Delete player" opens a confirmation dialog to prevent accidental deletions:<br>
-![Tela de deleção de jogador](./assets/tela_delete_player.png)<br>
-Caso pressione "Delete", o usuário será levado de volta à tela da edição do time, mas agora sem o jogador deletado. O "Cancel" somente tirará a janela de deleção do meio.
+Clicking "Save" updates the player with the new values:
 
-<br>*(English)*<br>
-If the user presses "Delete", they are returned to the Team Edit screen, now with the player removed. Pressing "Cancel" simply closes the confirmation dialog without deleting anything.
+<img src="./assets/tela_edit_player.jpeg" width="200"/>
 
-- #### Abrindo as estatísticas / Opening the stats<br>
+Selecting "Delete player" opens a confirmation dialog to prevent accidental deletions:
 
-Na navigation bar, o ícone mais a direita direciona o usuário para a tela de estatísticas:
+<img src="./assets/tela_delete_player.jpeg" width="200"/>
 
-<br>*(English)*<br>
-On the navigation bar, the icon on the far right takes the user to the Statistics (History) screen:<br>
-![Tela de historico vazia](./assets/tela_history_vazia.png)<br>
-Se caso não tenha nenhuma partida finalizada, essa será a tela que aparecerá. Mas caso tenha alguma, ao entrar na tela, são mostrados os resumos das estatísticas em uma lista de widgets. 
-Cada widget contém:
-Um botão para abrir as estatísticas dessa partida em específico mais a esquerda;
-O escudo e a abreviação de cada time;
-O placar e a data;
-Um botão para abrir a localização dessa partida e;
-Um botão para excluir a partida.
+If the user presses "Delete," they are returned to the Team Edit screen, now with the player removed. Pressing "Cancel" simply closes the confirmation dialog without deleting anything.
 
-<br>*(English)*<br>
-If there are no finished matches, this will be the screen displayed. However, if there are any finished matches, the screen will display a list of match summaries, each represented by a widget.
+### Opening the Stats
+
+On the navigation bar, the icon on the far right directs the user to the match history screen:
+
+<img src="./assets/tela_history_vazia.jpeg" width="200"/>
+
+If there are no finished matches, this will be the screen displayed. However, if there are any finished matches, the screen will show match summaries in a list of widgets.
 
 Each match widget contains:
 
-A button on the far left to open the detailed statistics of that specific match.
+* A button on the far left to open the detailed statistics of that specific match.
+* The logo and abbreviation of each team.
+* The score and the date of the match.
+* A location button to view where the match was played.
+* A delete button to remove the match from history.
 
-The logo and abbreviation of each team.
+<img src="./assets/tela_history_com_exemplos.jpeg" width="200"/>
 
-The score and the date of the match.
+Clicking the red delete button brings up a confirmation dialog to prevent accidental deletion:
 
-A location button to view where the match was played.
+<img src="./assets/tela_history_delete_match.jpeg" width="200"/>
 
-A delete button to remove the match from the history.<br>
-![Tela de historico com partidas](./assets/tela_history_com_exemplos.png)<br>
-Ao clicar no botão vermelho, uma janela de confirmação de deleção aparece para impedir exclusão por acidentes:
+If the user confirms "Delete," they're returned to the history screen, now without the deleted match.
 
-<br>*(English)*<br>
-When clicking the red delete button, a confirmation dialog appears to prevent accidental deletion:<br>
-![Tela de exclusão de partida](./assets/tela_history_delete_match.png)<br>
-Ao pressionar "Delete", o usuário volta para a tela history, porém dessa vez sem a partida que acabou de ser apagada.
-Ao pressionar no botão de abrir estatísticas, no ícone mais a esquerda, é aberta a tela de estatísticas com as estatísticas dessa partida:
+Clicking the statistics button (the icon on the far left of the match widget) opens the Statistics screen for that specific match:
 
-<br>*(English)*<br>
-If the user confirms "Delete", they are returned to the history screen, now without the deleted match.
+<img src="./assets/tela_stats.jpeg" width="200"/>
 
-When clicking the statistics button (icon on the far left of the widget), the app opens the Statistics screen for that specific match:<br>
-![Tela de estatísticas](./assets/tela_stats.png)<br>
-Nessa tela também tem um botão no lado direito da tela para caso o usuário queira excluir a partida a partir dessa tela:
+On this Statistics screen, there's also a delete button on the right side in case the user wants to delete the match directly from here:
 
-<br>*(English)*<br>
-On the Statistics screen, there is also a delete button on the right side in case the user wants to delete the match directly from this screen:<br>
-![Tela de exclusão em stats](./assets/tela_stats_delete.png)<br>
-Também nessa tela temos um botão para filtrar as estatísticas por time, para impedir a tela de ficar muito lotada:
+<img src="./assets/tela_stats_delete.jpeg" width="200"/>
 
-<br>*(English)*<br>
-Additionally, this screen includes a filter button that allows the user to filter statistics by team, preventing the screen from becoming too cluttered:<br>
-![Tela de stats usando filter](./assets/tela_stats_filter.png)<br>
-Voltando à tela history, temos um ícone de localização, que serve para abrir a localização onde a partida foi feita. A localização não está mostrando o local exato por que não usei a API do google por questões financeiras, mas a aplicação primeiro pergunta se pode pegar a localização, depois pega as coordenadas atuais do usuário e salva, isso tudo no momento em que finaliza uma partida. Esse ícone abre o google maps passando as coordenadas como argumento e isso faz com que ele pegueo um local aleatório proximo ao local onde a partida foi feita.
+Additionally, this screen includes a filter button that allows the user to filter statistics by team, preventing the screen from becoming too cluttered:
 
-<br>*(English)*<br>
-Back on the History screen, there is also a location icon. This button opens the Google Maps app with the coordinates of where the match was played.
+<img src="./assets/tela_stats_filter.jpeg" width="200"/>
 
-The location isn’t 100% accurate because the app does not use Google’s paid APIs for precise location services (for financial reasons). Instead, when a match is finished, the app asks the user for permission to access their location, retrieves the current GPS coordinates, and saves them.
+Back on the History screen, there's also a location icon. This button opens the Google Maps app with the coordinates of where the match was played.
 
-When the location button is clicked, Google Maps opens with those coordinates passed as arguments, showing a random point close to where the match actually occurred.
+The location isn't 100% accurate because the app doesn't use Google's paid APIs for precise location services (for financial reasons). Instead, when a match is finished, the app asks the user for permission to access their location, retrieves the current GPS coordinates, and saves them.
 
+When the location button is clicked, Google Maps opens with those coordinates passed as arguments, showing a random point near where the match actually occurred.
+
+---
+
+## Challenges & Solutions
+
+I encountered many problems during development that I had to address and solve. Some of them include:
+
+* **Database Connection Issues**: I faced `NullPointerException`s with `SqlExceptionHelper` and `UnknownHostException`. Debugging was systematic, involving checking `psql`, the `jdbc:` prefix, environment variables, simplifying passwords, and `sslmode=require`. I spent a lot of time searching for solutions to these issues simply because of incorrect database addresses. The deployment services I used (like Render and others) provided various types of addresses for connecting to my cloud database, but none of them worked directly. Eventually, I realized that these services didn't include the "jdbc:" prefix in the URL, and Spring only reads addresses that have this prefix. Second, the provided URLs weren't in the correct standard format (`jdbc:<host>:<port>`). So, I had to read the addresses provided by the service and combine them with the standard format to make it work, as ultimately, the service gave me the wrong hostname in their provided address, but the full address contained the correct hostname.
+
+* **Deployment Hurdles**: Before deploying, I researched available free options, as I had no budget (and had never deployed anything before, so I assumed there were many good free options). However, upon exploring the free deployment options, I ultimately decided not to make the application publicly available, as the free deployment options didn't provide the necessary resources for a minimally acceptable user experience. Nevertheless, I performed a free deployment for my own testing, choosing Render after watching a video that demonstrated the simplicity of setting everything up there—both the database and API deployment—and also explained how to create the Dockerfile for deployment.
+
+* **Frontend/Backend Alignment (Flutter/Spring Boot)**: During the testing phase, I had to deal with many issues related to type differences between what the backend sent in DTOs and what the frontend received and used to store those responses, and vice versa. Before finalizing development, I had to refactor all the code (with the help of artificial intelligence for productivity), resulting in much better organized code. I also faced debugging difficulties initially because I hadn't included descriptive error messages, which forced me to chase errors by adding `print` statements to the code.
+
+## Learnings
+
+This project was not only for learning but also for financial gain. However, as mentioned, the financial viability did not materialize. Despite this, I believe this project was a turning point for me and my academic and professional development, as I had never followed the development of an application from start to finish.
+
+I gained practical experience in various areas:
+
+* **Problem Solving**: I learned to solve problems independently, regardless of their nature. Before this project, I only knew pure Java (which I learned before my course), Flutter (during the course), and PostgreSQL (during the course). I had no knowledge of APIs, as I hadn't reached that part of the course, nor of Spring Boot and how it simplifies everything.
+* **Good Code Practices**: The documentation, which I learned in the course, hadn't been fully internalized due to a lack of practical application, but now it has. Developing a project from start to finish immensely expanded my vision on problem-solving, as I now understand what each team (frontend, backend, database, documentation, requirements analysis) needs to solve a problem.
+* **Requirements Analysis**: I learned about the importance of good requirements analysis and how to translate that analysis into development, defining the project scope in the best way to avoid inventing unnecessary features during the process.
+* **Security and Environment**: I learned the importance of having documented data standards (database, API, frontend) to reduce errors related to variable types and names. I understood the importance of API documentation for the frontend. I learned to separate methods into files (something I already did on the backend but not immediately on the frontend). I grasped the importance of hiding sensitive credentials (like database URLs, passwords, etc.) in `.env` files and not pushing them to GitHub via `.gitignore`. And finally, the importance of environment variables (not just their existence on the computer, but how to use them with placeholders in the code), how to configure them on the deployment site, and the obvious fact, which I only knew in theory, that the cloud is basically other people's and companies' computers in various parts of the world, which requires a Dockerfile to install what is needed on their machines to run the application.
+
+This project, then, serves as a token of my learning. In the future, I intend to revisit it to improve it and eventually make it publicly available.
+
+## 6. Future Enhancements
+
+During development, I researched and, to my surprise, found that there were already applications with the same goal, but far more advanced and long-established in the market—something I hadn't discovered in my initial research. For this application to stand out against its competitors, it would need a significant differentiator. I already have an idea for this differentiator, but I don't possess the necessary skills to implement it at the moment. I plan to acquire these skills eventually, but I won't be focusing on the application for now.
